@@ -1,0 +1,520 @@
+/* Import playful fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Patrick+Hand&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating shapes animation */
+.floating-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 15s infinite ease-in-out;
+}
+
+.shape-star {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-heart {
+    top: 20%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.shape-circle {
+    bottom: 15%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.shape-triangle {
+    top: 60%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.shape-moon {
+    bottom: 25%;
+    right: 25%;
+    animation-delay: 3s;
+}
+
+.shape-rainbow {
+    top: 40%;
+    left: 5%;
+    animation-delay: 5s;
+}
+
+.shape-flower {
+    bottom: 40%;
+    right: 5%;
+    animation-delay: 6s;
+}
+
+.shape-sparkle {
+    top: 75%;
+    left: 15%;
+    animation-delay: 2.5s;
+}
+
+/* Eric sticker styles */
+.shape-eric {
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+    opacity: 0.95;
+}
+
+/* Bounce animation variants - reaching top and bottom */
+@keyframes bounceAround1 {
+    0% { top: -5%; left: 15%; }
+    25% { top: 95%; left: 80%; }
+    50% { top: -5%; left: 70%; }
+    75% { top: 95%; left: 20%; }
+    100% { top: -5%; left: 15%; }
+}
+
+@keyframes bounceAround2 {
+    0% { top: 95%; right: 25%; }
+    25% { top: -5%; right: 75%; }
+    50% { top: 95%; right: 15%; }
+    75% { top: -5%; right: 50%; }
+    100% { top: 95%; right: 25%; }
+}
+
+@keyframes bounceAround3 {
+    0% { top: -5%; left: 50%; }
+    25% { top: 95%; left: 10%; }
+    50% { top: -5%; left: 85%; }
+    75% { top: 95%; left: 40%; }
+    100% { top: -5%; left: 50%; }
+}
+
+@keyframes bounceAround4 {
+    0% { top: 95%; right: 10%; }
+    25% { top: -5%; right: 60%; }
+    50% { top: 95%; right: 80%; }
+    75% { top: -5%; right: 20%; }
+    100% { top: 95%; right: 10%; }
+}
+
+@keyframes bounceAround5 {
+    0% { top: -5%; left: 30%; }
+    25% { top: 95%; left: 60%; }
+    50% { top: -5%; left: 20%; }
+    75% { top: 95%; left: 75%; }
+    100% { top: -5%; left: 30%; }
+}
+
+.eric-1 {
+    background-image: url('stickers/eric-1.png');
+    animation: bounceAround1 18s infinite ease-in-out;
+}
+
+.eric-2 {
+    background-image: url('stickers/eric-2.png');
+    animation: bounceAround2 22s infinite ease-in-out;
+}
+
+.eric-3 {
+    background-image: url('stickers/eric-3.png');
+    animation: bounceAround3 20s infinite ease-in-out;
+}
+
+.eric-4 {
+    background-image: url('stickers/eric-4.png');
+    animation: bounceAround4 24s infinite ease-in-out;
+}
+
+.eric-5 {
+    background-image: url('stickers/eric-5.png');
+    animation: bounceAround5 19s infinite ease-in-out;
+}
+
+/* Additional sticker instances with different paths */
+@keyframes bounceAround6 {
+    0% { top: 50%; left: 5%; }
+    25% { top: -5%; left: 40%; }
+    50% { top: 95%; left: 90%; }
+    75% { top: 40%; left: 65%; }
+    100% { top: 50%; left: 5%; }
+}
+
+@keyframes bounceAround7 {
+    0% { top: 95%; right: 5%; }
+    25% { top: 30%; right: 85%; }
+    50% { top: -5%; right: 40%; }
+    75% { top: 70%; right: 15%; }
+    100% { top: 95%; right: 5%; }
+}
+
+@keyframes bounceAround8 {
+    0% { top: 20%; left: 85%; }
+    25% { top: 95%; left: 25%; }
+    50% { top: -5%; left: 55%; }
+    75% { top: 60%; left: 10%; }
+    100% { top: 20%; left: 85%; }
+}
+
+@keyframes bounceAround9 {
+    0% { top: -5%; right: 30%; }
+    25% { top: 80%; right: 5%; }
+    50% { top: 10%; right: 70%; }
+    75% { top: 95%; right: 45%; }
+    100% { top: -5%; right: 30%; }
+}
+
+@keyframes bounceAround10 {
+    0% { top: 70%; left: 60%; }
+    25% { top: -5%; left: 10%; }
+    50% { top: 95%; left: 80%; }
+    75% { top: 25%; left: 35%; }
+    100% { top: 70%; left: 60%; }
+}
+
+@keyframes bounceAround11 {
+    0% { top: 95%; right: 55%; }
+    25% { top: 15%; right: 10%; }
+    50% { top: -5%; right: 80%; }
+    75% { top: 55%; right: 35%; }
+    100% { top: 95%; right: 55%; }
+}
+
+@keyframes bounceAround12 {
+    0% { top: 40%; left: 25%; }
+    25% { top: 95%; left: 75%; }
+    50% { top: -5%; left: 45%; }
+    75% { top: 85%; left: 5%; }
+    100% { top: 40%; left: 25%; }
+}
+
+.eric-1-alt {
+    background-image: url('stickers/eric-1.png');
+    animation: bounceAround6 21s infinite ease-in-out;
+}
+
+.eric-2-alt {
+    background-image: url('stickers/eric-2.png');
+    animation: bounceAround7 23s infinite ease-in-out;
+}
+
+.eric-3-alt {
+    background-image: url('stickers/eric-3.png');
+    animation: bounceAround8 19s infinite ease-in-out;
+}
+
+.eric-4-alt {
+    background-image: url('stickers/eric-4.png');
+    animation: bounceAround9 25s infinite ease-in-out;
+}
+
+.eric-5-alt {
+    background-image: url('stickers/eric-5.png');
+    animation: bounceAround10 20s infinite ease-in-out;
+}
+
+.eric-1-alt2 {
+    background-image: url('stickers/eric-1.png');
+    animation: bounceAround11 22s infinite ease-in-out;
+}
+
+.eric-2-alt2 {
+    background-image: url('stickers/eric-2.png');
+    animation: bounceAround12 24s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-40px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-20px) rotate(3deg);
+    }
+}
+
+/* Main container */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: bounceIn 0.8s ease-out;
+}
+
+.title {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.emoji {
+    display: inline-block;
+    animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 600;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Question Card */
+.question-card {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa06b 100%);
+    border-radius: 30px;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 5px solid #fff;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    animation: bounceIn 1s ease-out 0.2s both;
+}
+
+.question-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-decoration {
+    position: absolute;
+    font-size: 2rem;
+    animation: spin 3s infinite ease-in-out;
+}
+
+.top-left {
+    top: -15px;
+    left: -15px;
+}
+
+.top-right {
+    top: -15px;
+    right: -15px;
+}
+
+.bottom-left {
+    bottom: -15px;
+    left: -15px;
+}
+
+.bottom-right {
+    bottom: -15px;
+    right: -15px;
+}
+
+@keyframes spin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+}
+
+.question-content {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-text {
+    font-size: 1.7rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* Random Button */
+.random-button {
+    width: 100%;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: 5px solid #fff;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: bounceIn 1.2s ease-out 0.4s both;
+}
+
+.random-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.random-button:active {
+    transform: scale(0.95);
+}
+
+.button-icon {
+    font-size: 1.5rem;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.button-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease-out 0.6s both;
+}
+
+.footer p {
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Simple bounce animation for card */
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+    0% {
+        opacity: 1;
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #f0f;
+    top: -10px;
+    pointer-events: none;
+    animation: confetti-fall 3s linear forwards;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .question-text {
+        font-size: 2.2rem;
+    }
+
+    .random-button {
+        font-size: 1.1rem;
+        padding: 18px 25px;
+    }
+
+    .shape {
+        font-size: 1.5rem;
+    }
+}

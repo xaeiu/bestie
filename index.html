@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestie Questions Game 🎮</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating decorative shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-star">⭐</div>
+        <div class="shape shape-heart">💛</div>
+        <div class="shape shape-circle">🔵</div>
+        <div class="shape shape-triangle">🔺</div>
+        <div class="shape shape-moon">🌙</div>
+        <div class="shape shape-rainbow">🌈</div>
+        <div class="shape shape-flower">🌸</div>
+        <div class="shape shape-sparkle">✨</div>
+
+        <!-- Eric stickers floating around - 12 total -->
+        <div class="shape shape-eric eric-1"></div>
+        <div class="shape shape-eric eric-2"></div>
+        <div class="shape shape-eric eric-3"></div>
+        <div class="shape shape-eric eric-4"></div>
+        <div class="shape shape-eric eric-5"></div>
+        <div class="shape shape-eric eric-1-alt"></div>
+        <div class="shape shape-eric eric-2-alt"></div>
+        <div class="shape shape-eric eric-3-alt"></div>
+        <div class="shape shape-eric eric-4-alt"></div>
+        <div class="shape shape-eric eric-5-alt"></div>
+        <div class="shape shape-eric eric-1-alt2"></div>
+        <div class="shape shape-eric eric-2-alt2"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="emoji">🎮</span>
+                Bestie Questions
+                <span class="emoji">🎮</span>
+            </h1>
+            <p class="subtitle">Let's get to know each other!</p>
+        </header>
+
+        <!-- Question Card -->
+        <div class="question-card" id="questionCard">
+            <div class="card-decoration top-left">🌟</div>
+            <div class="card-decoration top-right">💫</div>
+            <div class="card-decoration bottom-left">🎈</div>
+            <div class="card-decoration bottom-right">🎨</div>
+
+            <div class="question-content">
+                <p class="question-text" id="questionText">
+                    Click the button below to start!
+                </p>
+            </div>
+        </div>
+
+        <!-- Random Button -->
+        <button class="random-button" id="randomButton">
+            <span class="button-icon">🎲</span>
+            <span class="button-text">Get Random Question</span>
+            <span class="button-icon">🎲</span>
+        </button>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with 💖 for Eric Chou fans!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Questions embedded directly in HTML
+        const questions = [
+            "What's your biggest dream in life?",
+            "If you could have dinner with anyone, dead or alive, who would it be?",
+            "What's your favorite childhood memory?",
+            "What's something you've never told anyone?",
+            "If you could live anywhere in the world, where would it be?",
+            "What's your biggest fear?",
+            "What makes you feel most alive?",
+            "If you could change one thing about yourself, what would it be?",
+            "What's the best advice you've ever received?",
+            "What's your love language?",
+            "What's something that always makes you laugh?",
+            "What's your biggest regret?",
+            "If you could have any superpower, what would it be?",
+            "What's your favorite way to spend a weekend?",
+            "What's something you're really proud of?",
+            "What's your idea of a perfect day?",
+            "What's something you want to learn or get better at?",
+            "What's your favorite thing about yourself?",
+            "If you could relive one day of your life, which would it be?",
+            "What's something that scares you about the future?",
+            "What's your biggest pet peeve?",
+            "What's the most spontaneous thing you've ever done?",
+            "What's your comfort food?",
+            "What song best describes your life right now?",
+            "What's something you wish people knew about you?",
+            "What's your earliest memory?",
+            "If you could switch lives with someone for a day, who would it be?",
+            "What's something you're currently struggling with?",
+            "What's your favorite quality in a friend?",
+            "What makes you feel loved?",
+            "What's a risk you wish you had taken?",
+            "What's your go-to way to cheer yourself up?",
+            "What's something you're passionate about?",
+            "If you could give your younger self advice, what would it be?",
+            "What's the kindest thing someone has ever done for you?",
+            "What's your biggest insecurity?",
+            "What's something you've learned recently?",
+            "What's your favorite thing about our friendship?",
+            "What's something you wish you could tell your future self?",
+            "What's a secret talent you have?",
+            "What's the last thing that made you cry?",
+            "What's your favorite way to be creative?",
+            "Who knows you better than anyone else?",
+            "What's a tradition you want to start?",
+            "What's the most adventurous thing you've ever done?",
+            "What do you value most in life?",
+            "What's a goal you're currently working towards?",
+            "What's your favorite memory with me?",
+            "What makes you feel confident?",
+            "What's something you're grateful for today?",
+            "What's your guilty pleasure?",
+            "If you could master any skill instantly, what would it be?",
+            "What's the best compliment you've ever received?",
+            "What does friendship mean to you?",
+            "What's something that always inspires you?",
+            "What's your biggest strength?",
+            "What's a lesson you learned the hard way?",
+            "What's your favorite thing to do alone?",
+            "What do you think is your purpose in life?",
+            "What's something you're looking forward to?",
+            "What's your favorite way to spend time with friends?",
+            "What's a belief you hold strongly?",
+            "What's the most important thing in a relationship?",
+            "What makes you feel at peace?",
+            "What's a challenge you've overcome?",
+            "What's your favorite thing about where you live?",
+            "What's something you wish you had more time for?",
+            "What's your definition of success?",
+            "What's the best gift you've ever given?",
+            "What's a habit you want to develop?",
+            "What's your favorite season and why?",
+            "What's something that always puts you in a good mood?",
+            "What's a place that feels like home to you?",
+            "What's your favorite type of music and why?",
+            "What's something you'd like to be remembered for?",
+            "What's a mistake you're glad you made?",
+            "What's your favorite way to relax?",
+            "What's something you're curious about?",
+            "What's the bravest thing you've ever done?",
+            "What's your favorite holiday and why?",
+            "What's something that makes you feel nostalgic?",
+            "What's a dream you gave up on?",
+            "What's your favorite thing to talk about?",
+            "What's something you wish you started earlier?",
+            "What's your morning routine like?",
+            "What's something you do for self-care?",
+            "What's your biggest accomplishment?",
+            "What's a question you wish people would ask you?",
+            "What's your love story (or what do you hope it will be)?",
+            "What's something that changed your perspective on life?",
+            "What's your favorite family tradition?",
+            "What's something you're still figuring out?",
+            "What's the most meaningful conversation you've had?",
+            "What's your relationship with social media?",
+            "What's something you'd do if you weren't afraid?",
+            "What's your favorite thing about getting older?",
+            "What's a boundary you've set for yourself?",
+            "What's your biggest 'what if'?",
+            "What's something you're learning to accept?",
+            "What's your favorite way to celebrate?",
+            "What's a book/movie/show that changed you?",
+            "What's something you want to experience before you die?",
+            "What's your relationship with your family like?",
+            "What's something you're unlearning?",
+            "What's the most romantic thing you've ever done or experienced?",
+            "What's your favorite way to show love?",
+            "What's a memory that makes you smile?",
+            "What's something you'd tell a stranger about yourself?",
+            "What's your favorite physical feature about yourself?",
+            "What's something you're proud of but don't talk about?",
+            "What's a fear you've conquered?",
+            "What's your favorite time of day?",
+            "What's something you wish more people understood?",
+            "What's a promise you made to yourself?",
+            "What's something that gives your life meaning?",
+            "What's a compliment you wish you heard more often?",
+            "What's your favorite thing about being you?"
+        ];
+
+        // Global variables
+        let currentQuestionIndex = -1;
+        let usedQuestions = new Set();
+
+        // DOM elements
+        const questionText = document.getElementById('questionText');
+        const questionCard = document.getElementById('questionCard');
+        const randomButton = document.getElementById('randomButton');
+
+        // Get a random question that hasn't been used yet
+        function getRandomQuestion() {
+            if (questions.length === 0) {
+                return "No questions available!";
+            }
+
+            // Reset if all questions have been used
+            if (usedQuestions.size >= questions.length) {
+                usedQuestions.clear();
+                createConfetti('🎉');
+                setTimeout(() => {
+                    alert('🎊 You\'ve seen all the questions! Starting over...');
+                }, 100);
+            }
+
+            // Find an unused question
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * questions.length);
+            } while (usedQuestions.has(randomIndex));
+
+            usedQuestions.add(randomIndex);
+            currentQuestionIndex = randomIndex;
+
+            return questions[randomIndex];
+        }
+
+        // Display a new random question
+        function displayRandomQuestion() {
+            const question = getRandomQuestion();
+
+            // Add bounce animation to card
+            questionCard.classList.add('bounce');
+            setTimeout(() => {
+                questionCard.classList.remove('bounce');
+            }, 300);
+
+            // Update question text with a fade effect
+            questionText.style.opacity = '0';
+            setTimeout(() => {
+                questionText.textContent = question;
+                questionText.style.opacity = '1';
+            }, 250);
+
+            // Create confetti effect
+            createConfetti();
+        }
+
+        // Create confetti animation
+        function createConfetti(emoji = null) {
+            const colors = ['#ff6b9d', '#ffa06b', '#f5576c', '#f093fb', '#4facfe', '#43e97b', '#ffd700'];
+            const emojis = ['✨', '🌟', '💫', '⭐', '🎉', '🎊', '💖', '💛', '💚', '💙'];
+
+            // Create 20 confetti pieces
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+
+                    if (emoji || Math.random() > 0.5) {
+                        // Use emoji
+                        confetti.textContent = emoji || emojis[Math.floor(Math.random() * emojis.length)];
+                        confetti.style.fontSize = '20px';
+                    } else {
+                        // Use colored square
+                        confetti.classList.add('confetti');
+                        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.width = `${Math.random() * 10 + 5}px`;
+                        confetti.style.height = confetti.style.width;
+                    }
+
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.top = '-10px';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '1000';
+                    confetti.style.animation = `confetti-fall ${Math.random() * 2 + 2}s linear forwards`;
+
+                    document.body.appendChild(confetti);
+
+                    // Remove confetti after animation
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 50);
+            }
+        }
+
+        // Add button click animation
+        randomButton.addEventListener('click', () => {
+            randomButton.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                randomButton.style.transform = '';
+            }, 100);
+
+            displayRandomQuestion();
+        });
+
+        // Add keyboard support (press Space or Enter to get new question)
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault();
+                randomButton.click();
+            }
+        });
+
+        // Add smooth transition for question text
+        questionText.style.transition = 'opacity 0.25s ease-in-out';
+
+        // Eric stickers collision detection and physics
+        const stickers = [];
+        const stickerElements = document.querySelectorAll('.shape-eric');
+        const stickerSize = 80;
+
+        // Initialize sticker positions
+        stickerElements.forEach((el, index) => {
+            const sticker = {
+                element: el,
+                x: Math.random() * (window.innerWidth - stickerSize),
+                y: Math.random() * (window.innerHeight - stickerSize),
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                speed: 0.2 + Math.random() * 0.2
+            };
+            stickers.push(sticker);
+
+            // Remove CSS animation and use JS positioning
+            el.style.animation = 'none';
+            el.style.position = 'fixed';
+        });
+
+        // Animation loop
+        function animateStickers() {
+            stickers.forEach((sticker, i) => {
+                // Update position
+                sticker.x += sticker.vx * sticker.speed;
+                sticker.y += sticker.vy * sticker.speed;
+
+                // Bounce off walls
+                if (sticker.x <= 0 || sticker.x >= window.innerWidth - stickerSize) {
+                    sticker.vx *= -1;
+                    sticker.x = Math.max(0, Math.min(sticker.x, window.innerWidth - stickerSize));
+                }
+                if (sticker.y <= 0 || sticker.y >= window.innerHeight - stickerSize) {
+                    sticker.vy *= -1;
+                    sticker.y = Math.max(0, Math.min(sticker.y, window.innerHeight - stickerSize));
+                }
+
+                // Check collision with other stickers
+                for (let j = i + 1; j < stickers.length; j++) {
+                    const other = stickers[j];
+                    const dx = other.x - sticker.x;
+                    const dy = other.y - sticker.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < stickerSize) {
+                        // Collision detected - bounce off each other
+                        const angle = Math.atan2(dy, dx);
+                        const targetX = sticker.x + Math.cos(angle) * stickerSize;
+                        const targetY = sticker.y + Math.sin(angle) * stickerSize;
+
+                        const ax = (targetX - other.x) * 0.5;
+                        const ay = (targetY - other.y) * 0.5;
+
+                        sticker.vx -= ax;
+                        sticker.vy -= ay;
+                        other.vx += ax;
+                        other.vy += ay;
+                    }
+                }
+
+                // Apply position
+                sticker.element.style.left = sticker.x + 'px';
+                sticker.element.style.top = sticker.y + 'px';
+            });
+
+            requestAnimationFrame(animateStickers);
+        }
+
+        // Start animation
+        animateStickers();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            stickers.forEach(sticker => {
+                sticker.x = Math.min(sticker.x, window.innerWidth - stickerSize);
+                sticker.y = Math.min(sticker.y, window.innerHeight - stickerSize);
+            });
+        });
+    </script>
+</body>
+</html>
